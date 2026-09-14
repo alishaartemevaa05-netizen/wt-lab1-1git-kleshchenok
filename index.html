@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лето, которое не хочется забывать</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --cream:   #f7f3ee;
+      --milk:    #fffdfa;
+      --linen:   #efe7dd;
+      --ink:     #2b2723;
+      --muted:   #857b70;
+
+      --blush:   #e9c9bd;
+      --rose:    #d8a3a0;
+      --sage:    #b7c4b1;
+      --mint:    #b9d1c4;
+      --sky:     #a9c3d1;
+      --lavender:#c4b6d4;
+      --peach:   #efc9a8;
+      --clay:    #b9795a;
+    }
+
+    * { -webkit-font-smoothing: antialiased; }
+    html, body { background: var(--cream); }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .italic { font-style: italic; font-weight: 500; }
+    .muted { color: var(--muted); }
+
+    /* ========= HERO ========= */
+    .hero {
+      padding: 7rem 1rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 500px at 15% 20%, #f3d9d2 0%, transparent 60%),
+        radial-gradient(700px 500px at 85% 15%, #d4e2dc 0%, transparent 60%),
+        radial-gradient(800px 600px at 50% 100%, #dcdfe9 0%, transparent 65%),
+        var(--cream);
+    }
+    .hero .sticker {
+      display: inline-block;
+      background: var(--milk);
+      border: 1px solid var(--linen);
+      color: var(--clay);
+      padding: .5rem 1.1rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6.5vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+      background: linear-gradient(90deg, #b9795a, #b9877f, #6d8560, #557d94);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 1.4vw, 1.08rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
+      margin-top: 2.5rem;
+    }
+    .hero-meta span {
+      background: var(--milk);
+      border: 1px solid var(--linen);
+      color: var(--ink);
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+    }
+    .hero-meta span:nth-child(1) i { color: var(--clay); }
+    .hero-meta span:nth-child(2) i { color: #557d94; }
+    .hero-meta span:nth-child(3) i { color: #6d8560; }
+    .hero-meta i { margin-right: .4rem; }
+
+    /* ========= ОБЩЕЕ ========= */
+    section { padding: 5rem 0; }
+
+    .eyebrow {
+      font-size: .74rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--clay);
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: .9rem;
+    }
+    .title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: .8rem;
+    }
+    .title em { font-style: italic; }
+    .lead {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.02rem;
+    }
+
+    .title em.c-clay     { color: var(--clay); }
+    .title em.c-rose     { color: #a4686d; }
+    .title em.c-sage     { color: #6d8560; }
+    .title em.c-sky      { color: #557d94; }
+    .title em.c-lavender { color: #7d6b96; }
+    .title em.c-peach    { color: #b57a4c; }
+
+    /* ========= ПОРТРЕТ ========= */
+    .portrait {
+      max-width: 420px;
+      margin: 0 auto;
+      background: var(--milk);
+      padding: 14px 14px 22px;
+      border-radius: 22px;
+      box-shadow: 0 25px 60px -30px rgba(43,39,35,.25);
+      transform: rotate(-1.2deg);
+    }
+    .portrait img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    .portrait-caption {
+      text-align: center;
+      margin-top: 1rem;
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* ========= ГЛАВЫ ========= */
+    .chapter {
+      background: var(--milk);
+      border: 1px solid var(--linen);
+      border-radius: 24px;
+      padding: 2.2rem 1.9rem 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .chapter::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+    }
+    .chapter.ch-rose::before  { background: linear-gradient(90deg, #d8a3a0, #e9c9bd); }
+    .chapter.ch-sky::before   { background: linear-gradient(90deg, #a9c3d1, #c4b6d4); }
+    .chapter.ch-sage::before  { background: linear-gradient(90deg, #b7c4b1, #b9d1c4); }
+    .chapter.ch-peach::before { background: linear-gradient(90deg, #efc9a8, #e9c9bd); }
+
+    .chapter .num {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+    .chapter.ch-rose .num  { color: #a4686d; }
+    .chapter.ch-sky .num   { color: #557d94; }
+    .chapter.ch-sage .num  { color: #6d8560; }
+    .chapter.ch-peach .num { color: #b57a4c; }
+
+    .chapter h3 { font-size: 1.55rem; margin: 0; }
+    .chapter p  { color: var(--muted); margin: 0; font-size: .97rem; }
+
+    .chapter .tag {
+      display: inline-block;
+      color: var(--ink);
+      padding: .3rem .8rem;
+      border-radius: 999px;
+      font-size: .74rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .chapter.ch-rose  .tag { background: #f3e0dd; }
+    .chapter.ch-sky   .tag { background: #e2ecf1; }
+    .chapter.ch-sage  .tag { background: #e3ebdf; }
+    .chapter.ch-peach .tag { background: #f6e6d3; }
+
+    /* ========= ИСТОРИИ ========= */
+    .story { display: grid; gap: 3rem; align-items: center; }
+    @media (min-width: 992px) {
+      .story { grid-template-columns: 1fr 1fr; }
+      .story.reverse .story-media { order: 2; }
+    }
+    .story-media {
+      background: var(--milk);
+      padding: 12px;
+      border-radius: 22px;
+      box-shadow: 0 25px 60px -35px rgba(43,39,35,.3);
+    }
+    .story-media img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .story h2 { margin-bottom: 1rem; }
+    .story p  { color: var(--muted); }
+
+    .story-list { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+    .story-list li {
+      display: flex;
+      gap: .85rem;
+      padding: .55rem 0;
+      color: #4b4239;
+      font-size: .98rem;
+    }
+    .story-list i { font-size: 1.05rem; margin-top: .2rem; }
+
+    .story-list.c-rose i { color: #a4686d; }
+    .story-list.c-sky  i { color: #557d94; }
+    .story-list.c-sage i { color: #6d8560; }
+
+    /* чипсы */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--milk);
+      border: 1px solid var(--linen);
+      color: var(--ink);
+      padding: .5rem 1rem;
+      border-radius: 999px;
+      font-size: .88rem;
+      margin: 0 .4rem .55rem 0;
+    }
+    .chip i { color: var(--clay); }
+    .chip.c-sky i      { color: #557d94; }
+    .chip.c-lavender i { color: #7d6b96; }
+    .chip.c-peach i    { color: #b57a4c; }
+    .chip.c-sage i     { color: #6d8560; }
+    .chip.c-rose i     { color: #a4686d; }
+
+    /* ========= ГАЛЕРЕЯ (ровная сетка) ========= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    @media (min-width: 768px)  { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1200px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 15px 35px -25px rgba(43,39,35,.35);
+      cursor: zoom-in;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gallery-item:nth-child(6n+1) { background: #fbeeea; }
+    .gallery-item:nth-child(6n+2) { background: #e6eef2; }
+    .gallery-item:nth-child(6n+3) { background: #e8efe3; }
+    .gallery-item:nth-child(6n+4) { background: #f1ecf6; }
+    .gallery-item:nth-child(6n+5) { background: #f8ecdd; }
+    .gallery-item:nth-child(6n+6) { background: #e4f0e9; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* ========= ЛАЙТБОКС ========= */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 16, 12, .92);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1080;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .lightbox.open {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+      display: block;
+    }
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background .2s ease;
+    }
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover { background: rgba(255,255,255,.22); }
+
+    .lightbox-close { top: 20px; right: 20px; }
+    .lightbox-prev  { left: 20px;  top: 50%; transform: translateY(-50%); }
+    .lightbox-next  { right: 20px; top: 50%; transform: translateY(-50%); }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.85);
+      font-size: .9rem;
+      letter-spacing: .15em;
+    }
+
+    /* ========= ФИНАЛ ========= */
+    .final {
+      border-radius: 28px;
+      padding: 4.5rem 1.75rem;
+      text-align: center;
+      position: relative;
+      color: var(--ink);
+      background:
+        radial-gradient(700px 400px at 15% 20%, #f3d9d2 0%, transparent 60%),
+        radial-gradient(700px 400px at 85% 25%, #d4e2dc 0%, transparent 60%),
+        radial-gradient(700px 500px at 50% 100%, #ddd6e8 0%, transparent 65%),
+        var(--milk);
+      border: 1px solid var(--linen);
+    }
+    .final .quote {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+      color: var(--ink);
+      max-width: 720px;
+      margin: 0 auto 1.4rem;
+      line-height: 1.35;
+    }
+    .final .quote em {
+      font-style: italic;
+      background: linear-gradient(90deg, #b9795a, #7d6b96, #557d94);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .final .sign {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ========= ПОДВАЛ ========= */
+    footer {
+      padding: 3rem 1rem 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    footer::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--clay);
+      margin: 0 auto 1.2rem;
+    }
+
+    @media (max-width: 575.98px) {
+      section { padding: 3.5rem 0; }
+      .hero { padding: 5rem 1rem 3.5rem; }
+      .chapter { padding: 1.8rem 1.4rem; }
+      .gallery-grid { gap: 12px; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-close { top: 12px; right: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <span class="sticker">Лето 2026</span>
+      <h1>Лето, которое <em>не хочется забывать</em></h1>
+      <p>
+        Лагерь, Санкт-Петербург и новая работа — маленькие главы
+        одного тёплого лета, собранные в личный мудборд.
+      </p>
+
+      <div class="hero-meta">
+        <span><i class="bi bi-geo-alt"></i> Беларусь · Санкт-Петербург</span>
+        <span><i class="bi bi-calendar3"></i> Июль — Август 2026</span>
+        <span><i class="bi bi-images"></i> 12 кадров</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ПОРТРЕТ -->
+  <section class="pt-0">
+    <div class="container">
+      <div class="portrait">
+        <img src="5278379013263007631.jpg" alt="Моё фото" />
+      </div>
+      <p class="portrait-caption">Автор этой истории</p>
+    </div>
+  </section>
+
+  <!-- ТРИ ГЛАВЫ -->
+  <section class="pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="eyebrow">Содержание</span>
+        <h2 class="title">Три <em class="c-clay">главы</em> одного лета</h2>
+        <p class="lead mx-auto">
+          О людях, городах и решениях — по порядку.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="chapter ch-rose">
+            <span class="num">Глава I</span>
+            <span class="tag">Июнь — Июль</span>
+            <h3>Лагерь «Юность»</h3>
+            <p>
+              Этим летом я работала культорганизатором в лагере «Юность».
+              Юность — самый лучший лагерь на земле. Ведь я сама с 7 до 14 лет
+              ездила туда каждый год. Очень классно было оказаться снова в этом
+              лагере, но уже в другой роли. Дети, администрация, мероприятия —
+              и ощущение, что ты на своём месте.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="chapter ch-sky">
+            <span class="num">Глава II</span>
+            <span class="tag">Июль — Август</span>
+            <h3>Санкт-Петербург</h3>
+            <p>
+              Поездка в Санкт-Петербург: Эрмитаж, Океанариум,
+              прогулка на теплоходе, Петропавловская крепость,
+              долгие прогулки и очень вкусная еда.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 mx-md-auto">
+          <div class="chapter ch-sage">
+            <span class="num">Глава III</span>
+            <span class="tag">Август</span>
+            <h3>Новая работа</h3>
+            <p>
+              Вернулась — и прошла собеседования.
+              Лето закончилось не точкой, а началом
+              нового этапа: спокойного и по-настоящему «своего».
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГЛАВА 1. ЛАГЕРЬ -->
+  <section>
+    <div class="container">
+      <div class="story">
+        <div class="story-media">
+          <img src="5278379013263007634.jpg" alt="Лагерь «Юность»" />
+        </div>
+        <div>
+          <span class="eyebrow" style="color:#a4686d">Глава первая</span>
+          <h2 class="title">Смена, после которой <em class="c-rose">тянет обратно</em></h2>
+          <p class="lead">
+            «Юность» — это не просто лагерь. Я работала культорганизатором
+            на смене, и каждый день был наполнен людьми:
+            детьми, вожатыми, администрацией. Атмосфера, в которой
+            работать — в удовольствие.
+          </p>
+          <ul class="story-list c-rose">
+            <li><i class="bi bi-people"></i> Живые, классные дети, которые заряжают энергией</li>
+            <li><i class="bi bi-stars"></i> Крутой коллектив администрации — легко и по-человечески</li>
+            <li><i class="bi bi-heart"></i> Опыт, который остаётся с тобой дольше смены</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГЛАВА 2. ПИТЕР -->
+  <section>
+    <div class="container">
+      <div class="story reverse">
+        <div class="story-media">
+          <img src="5278379013263007632.jpg" alt="Санкт-Петербург" />
+        </div>
+        <div>
+          <span class="eyebrow" style="color:#557d94">Глава вторая</span>
+          <h2 class="title">Санкт-Петербург — <em class="c-sky">город, в который влюбляешься</em></h2>
+          <p class="lead">
+            Поездка в Санкт-Петербург превратилась
+            в маленькое путешествие: музеи, вода, архитектура
+            и много тёплых вечеров.
+          </p>
+          <div class="mt-3">
+            <span class="chip c-sky"><i class="bi bi-bank"></i> Эрмитаж</span>
+            <span class="chip c-lavender"><i class="bi bi-droplet"></i> Океанариум</span>
+            <span class="chip c-peach"><i class="bi bi-water"></i> Теплоход</span>
+            <span class="chip c-sage"><i class="bi bi-buildings"></i> Петропавловская крепость</span>
+            <span class="chip c-rose"><i class="bi bi-cup-hot"></i> Прогулки и вкусная еда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГЛАВА 3. РАБОТА -->
+  <section>
+    <div class="container">
+      <div class="story">
+        <div class="story-media">
+          <img src="5278379013263007628.jpg" alt="Новая работа" />
+        </div>
+        <div>
+          <span class="eyebrow" style="color:#6d8560">Глава третья</span>
+          <h2 class="title">Собеседования и <em class="c-sage">новый старт</em></h2>
+          <p class="lead">
+            После поездки — возвращение и важный шаг:
+            собеседования и трудоустройство. Лето завершилось
+            не точкой, а началом нового этапа.
+          </p>
+          <ul class="story-list c-sage">
+            <li><i class="bi bi-briefcase"></i> Несколько собеседований подряд</li>
+            <li><i class="bi bi-check2-circle"></i> Успешный оффер</li>
+            <li><i class="bi bi-rocket-takeoff"></i> Старт карьеры в новой роли</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГАЛЕРЕЯ -->
+  <section>
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="eyebrow">Фотоархив</span>
+        <h2 class="title">Лучшие <em class="c-lavender">кадры</em> этого лета</h2>
+        <p class="lead mx-auto">
+          Мгновения, из которых и складывается целое лето.
+          Нажми на фото, чтобы рассмотреть ближе.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <div class="gallery-item"><img src="5278379013263007630.jpg"     alt="Кадр 1" /></div>
+        <div class="gallery-item"><img src="5278379013263007632.jpg"     alt="Кадр 2" /></div>
+        <div class="gallery-item"><img src="5278379013263007639.jpg"     alt="Кадр 3" /></div>
+        <div class="gallery-item"><img src="5278379013263007640.jpg"     alt="Кадр 4" /></div>
+        <div class="gallery-item"><img src="5278379013263007642.jpg"     alt="Кадр 5" /></div>
+        <div class="gallery-item"><img src="5278379013263007643.jpg"     alt="Кадр 6" /></div>
+        <div class="gallery-item"><img src="5278379013263007633.jpg"     alt="Кадр 7" /></div>
+        <div class="gallery-item"><img src="5278379013263007636.jpg"     alt="Кадр 8" /></div>
+        <div class="gallery-item"><img src="5278379013263007637.jpg"     alt="Кадр 9" /></div>
+        <div class="gallery-item"><img src="5278379013263007641 (1).jpg" alt="Кадр 10" /></div>
+        <div class="gallery-item"><img src="5278379013263007676.jpg"     alt="Кадр 11" /></div>
+        <div class="gallery-item"><img src="5278379013263007674 (1).jpg" alt="Кадр 12" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЛАЙТБОКС -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-prev"  aria-label="Назад"><i class="bi bi-chevron-left"></i></button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next"  aria-label="Вперёд"><i class="bi bi-chevron-right"></i></button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <!-- ФИНАЛ -->
+  <section>
+    <div class="container">
+      <div class="final">
+        <p class="quote">
+          «Это лето получилось <em>настоящим</em> —
+          с людьми, городами и решениями, которые остаются с тобой».
+        </p>
+        <p class="sign">— конец истории, но не лета</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 · лето, которое не хочется забывать</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      const items     = Array.from(document.querySelectorAll('#gallery .gallery-item img'));
+      const lightbox  = document.getElementById('lightbox');
+      const lbImg     = document.getElementById('lightbox-img');
+      const counter   = document.getElementById('lightbox-counter');
+      const btnClose  = lightbox.querySelector('.lightbox-close');
+      const btnPrev   = lightbox.querySelector('.lightbox-prev');
+      const btnNext   = lightbox.querySelector('.lightbox-next');
+      let current = 0;
+
+      function open(i) {
+        current = (i + items.length) % items.length;
+        lbImg.src = items[current].src;
+        lbImg.alt = items[current].alt;
+        counter.textContent = (current + 1) + ' / ' + items.length;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      function next() { open(current + 1); }
+      function prev() { open(current - 1); }
+
+      items.forEach((img, i) => img.addEventListener('click', () => open(i)));
+
+      btnClose.addEventListener('click', close);
+      btnNext.addEventListener('click', next);
+      btnPrev.addEventListener('click', prev);
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft')  prev();
+      });
+    })();
+  </script>
+</body>
+</html>
